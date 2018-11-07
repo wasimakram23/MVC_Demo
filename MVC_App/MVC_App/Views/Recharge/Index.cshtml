@@ -1,0 +1,48 @@
+﻿@{
+    ViewBag.Title = "Recharge";
+}
+
+<div class="row" style="padding-top:2em;">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+        <div class="col-md-10" style="border:groove;border-radius:12px">
+                <div>
+                    <input id="recharge" type="button" value="Recharge" class="btn btn-primary" />
+                    <input id="bulk" type="button" value="Bulk" class="btn btn-primary" />
+                    <input id="powerload" type="button" value="PowerLoad" class="btn btn-primary" />
+                </div>
+                <div class="recharge">
+                  @Html.Partial("_Fileupload")
+                </div>
+                <div class="bulk">
+                    @Html.Partial("~/Views/Shared/Partial/_upload.cshtml")
+                </div>
+                <div class="powerload">
+                    
+                </div>
+        </div>
+    </div>
+    <div class="col-md-2"></div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $(".bulk").hide();
+        $(".powerload").hide();
+        $('#recharge').click(function () {
+            $(".recharge").show();
+            $(".bulk").hide();
+            $(".powerload").hide();
+        });
+        $('#bulk').click(function () {
+            $(".recharge").hide();
+            $(".bulk").show();
+            $(".powerload").hide();
+        });
+        $('#powerload').click(function () {
+            $(".recharge").hide();
+            $(".bulk").hide();
+            $(".powerload").show();
+        });
+    });
+
+</script>
